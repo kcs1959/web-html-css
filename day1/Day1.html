@@ -428,6 +428,296 @@ Webサイトを作れる言語は現状ほぼ一本化されている。
 <p>また、文書内のテキストに対して適切な役割と意味を付与することをマークアップと言う。HTMLはタグで囲むことでマークアップしている。</p>
 <h2 id="%E3%81%AA%E3%81%9C%E3%83%9E%E3%83%BC%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%8C%E5%BF%85%E8%A6%81%E3%81%AA%E3%81%AE%E3%81%8B">なぜマークアップが必要なのか</h2>
 <p>A. コンピュータが文書を読めるようにするため</p>
+<pre class="hljs"><code><div><span class="hljs-comment">&lt;!--SampelA.html--&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+KCSの歴史
+
+目次
+・発足
+・空白の10年間
+・成長期
+・全盛期
+・衰退期
+
+発足
+
+慶應義塾大学では，1958年に創立100年の記念事業の一環として，10進法トランジスタ式電子計算機K-1を開発した．電気試験所のトランジスタ式電子計算機ETL Mark
+IVをモデルに全トランジスタ化を行い，さらに浮動小数点演算機構および指標レジスタを加え，1語の桁数を12桁に拡張した．
+内部記憶には高速磁気ドラムを，入出力装置は機械式テープリーダ，フレキソライタ，テープパンチを使用した．
+
+...
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<p>これを表示すると<a href="https://htmlpreview.github.io/?https://github.com/kcs1959/web-html-css/blob/master/day1/SampleA.html">こうなる</a></p>
+<p>→人間には読めてもパソコンには生の文章じゃ分からない！</p>
+<p>→マークアップしよう</p>
+<h2 id="%E5%9F%BA%E6%9C%AC%E3%81%AE%E5%9F%BA%E6%9C%AC">基本の基本</h2>
+<p>先程の文章を簡単にHTMLで書くと以下のようになる。</p>
+<pre class="hljs"><code><div><span class="hljs-comment">&lt;!--SampleB.html--&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"ja"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>KCSの歴史<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>目次<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>発足<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>空白の10年間<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>成長期<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>全盛期<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>衰退期<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>発足<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+		慶應義塾大学では，1958年に創立100年の記念事業の一環として，10進法トランジスタ式電子計算機K-1を開発した．電気試験所のトランジスタ式電子計算機ETL Mark IVをモデルに全トランジスタ化を行い，さらに浮動小数点演算機構および指標レジスタを加え，1語の桁数を12桁に拡張した．
+		<span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+		内部記憶には高速磁気ドラムを，入出力装置は機械式テープリーダ，フレキソライタ，テープパンチを使用した．
+	<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<p><a href="https://htmlpreview.github.io/?https://github.com/kcs1959/web-html-css/blob/master/day1/SampleB.html">プレビュー</a></p>
+<p>要素ごとに説明していく。</p>
+<h3 id="%E8%A8%98%E8%BF%B0%E3%83%AB%E3%83%BC%E3%83%AB%E2%91%A0%E3%82%BF%E3%82%B0%E3%81%AF%E5%85%A8%E3%81%A6%E5%8D%8A%E8%A7%92%E6%96%87%E5%AD%97%E3%81%A7%E8%A8%98%E8%BF%B0%E3%81%99%E3%82%8B">記述ルール①：タグは全て半角文字で記述する。</h3>
+<p>&lt;&gt;で囲まれたものがタグである。タグ部分の記号と英数字は全て半角文字で記述しなければならない。
+1箇所でも全角文字が入るとエラーの原因になるので注意。</p>
+<p>またタグの名前は大文字小文字関係ないが、基本小文字で書くのがルール。</p>
+<pre class="hljs"><code><div><span class="hljs-comment">&lt;!--良い例--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>半角<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!--悪い例--&gt;</span>
+＜ｐ＞全角＜／ｐ＞
+</div></code></pre>
+<blockquote>
+<p>全角と半角の見分けがつきにくい文字も多いので、普段から半角を使う癖を身に着けよう！</p>
+</blockquote>
+<h3 id="%E8%A8%98%E8%BF%B0%E3%83%AB%E3%83%BC%E3%83%AB%E2%91%A1%E5%8D%8A%E8%A7%92%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E6%94%B9%E8%A1%8C%E3%82%B3%E3%83%BC%E3%83%89%E7%AD%89%E3%81%AF%E7%84%A1%E8%A6%96%E3%81%95%E3%82%8C%E3%82%8B">記述ルール②：半角スペース、改行コード等は無視される</h3>
+<p>半角スペースと改行コードは無視される。そのためいくら空白を作っても改行しても
+出力される画面に影響はない。</p>
+<p>コードが見やすくなるよう自由に使おう。</p>
+<blockquote>
+<p>他になんの文字が無視されるのかよく分かりませんでした。</p>
+</blockquote>
+<h3 id="%E8%A8%98%E8%BF%B0%E3%83%AB%E3%83%BC%E3%83%AB%E2%91%A2%E9%96%8B%E5%A7%8B%E3%82%BF%E3%82%B0%E3%81%A8%E7%B5%82%E4%BA%86%E3%82%BF%E3%82%B0%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%81%A7%E4%BD%BF%E3%81%86">記述ルール③：開始タグと終了タグのセットで使う。</h3>
+<p>基本的にタグは開始タグと終了タグをセットで使い、それを適用したい要素を囲むように記述する。</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>←開始タグ | 終了タグ→<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<p>セットで使うことを忘れないように、中身の要素の最初に数個の空白を入れるとよい。(インデント)</p>
+<pre class="hljs"><code><div><span class="hljs-comment">&lt;!--これはタブ1つで取ってる--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>インデント<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</div></code></pre>
+<p>ただし改行タグbrのように中身の無いものはタグを一つしか使わない。</p>
+<pre class="hljs"><code><div><span class="hljs-comment">&lt;!--どっちでもいい--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+</div></code></pre>
+<p>この場合は終了タグを付けてはいけない。</p>
+<blockquote>
+<p>XHTMLの場合は最後に/を入れなければならない</p>
+</blockquote>
+<h3 id="samplebhtml%E3%81%AE%E8%AA%AC%E6%98%8E">SampleB.htmlの説明</h3>
+<p>1行目：これがHTMLの文章であることを宣言する。バージョンによって宣言が異なり、例はHTML5であることを示す。「DOCTYPE」を大文字で、「html」は小文字で書くのが通例。</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+</div></code></pre>
+<p>2行目：HTMLの内容はhtmlタグで囲う必要がある(省略可能な場合も)。</p>
+<blockquote>
+<p>HTML5的にはhtmlタグの中にはheadタグとbodyタグしか書いてはいけないので注意!</p>
+</blockquote>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"ja"</span>&gt;</span>
+	...
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<h4 id="%E5%B1%9E%E6%80%A7attribute">属性(attribute)</h4>
+<p>htmlタグの中に書かれているlangを、htmlの属性という。</p>
+<p>属性は個々のタグに対してなんらかの性質を与えることができ、その場合=に続けて値を渡す。</p>
+<p>タグの種類によって付与できる属性は決まっている。</p>
+<ul>
+<li>開始タグの名前から半角スペースを開けて属性名を書く</li>
+<li>続けて=を書き、属性の値をダブルクオーテーション「&quot;&quot;」で囲んで後ろにつける</li>
+<li>複数属性を付ける場合はそれぞれ半角スペースを開ける</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://kcs1959.jp"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>KCSホームページ<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</div></code></pre>
+<p>3行目：h1,h2,...タグは見出しを作る。数字の小さい方が大きな見出しになる。</p>
+<pre class="hljs"><code><div>	<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>KCSの歴史<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>結果：</p>
+<h1>KCSの歴史</h1>
+</blockquote>
+<p>5~11行目：箇条書き。全体をulタグで囲み、箇条書きのそれぞれをliタグで並べる。olタグで囲むと数字の箇条書きになる。</p>
+<pre class="hljs"><code><div>	<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>発足<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>空白の10年間<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>成長期<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>全盛期<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>衰退期<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>結果：</p>
+	<ul>
+		<li>発足</li>
+		<li>空白の10年間</li>
+		<li>成長期</li>
+		<li>全盛期</li>
+		<li>衰退期</li>
+	</ul>
+</blockquote>
+<blockquote>
+<p>ul: Unordered Listの略。黒丸で箇条書きを作る</p>
+<p>ol: Ordered Listの略。数字で箇条書きを作る</p>
+<p>li: Listの略</p>
+</blockquote>
+<p>13~17行目：pタグで囲んだ部分は段落として認識される。</p>
+<pre class="hljs"><code><div>	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+		慶應義塾大学では，1958年に創立100年の記念事業の一環として，10進法トランジスタ式電子計算機K-1を開発した．電気試験所のトランジスタ式電子計算機ETL Mark IVをモデルに全トランジスタ化を行い，さらに浮動小数点演算機構および指標レジスタを加え，1語の桁数を12桁に拡張した．
+		<span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+		内部記憶には高速磁気ドラムを，入出力装置は機械式テープリーダ，フレキソライタ，テープパンチを使用した．
+	<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>結果：</p>
+	<p>
+		慶應義塾大学では，1958年に創立100年の記念事業の一環として，10進法トランジスタ式電子計算機K-1を開発した．電気試験所のトランジスタ式電子計算機ETL Mark IVをモデルに全トランジスタ化を行い，さらに浮動小数点演算機構および指標レジスタを加え，1語の桁数を12桁に拡張した．
+		<br/>
+		内部記憶には高速磁気ドラムを，入出力装置は機械式テープリーダ，フレキソライタ，テープパンチを使用した．
+	</p>
+	<p>...</p>
+</blockquote>
+<p>//TODO: 演習問題を考える</p>
+<h2 id="html5%E3%81%AE%E5%9F%BA%E6%9C%AC">HTML5の基本</h2>
+<p>HTML5ではタグの種類も増え、役割が分散されていっている。各文の要素だけでなく文書の大きな構造もタグを使って表す。</p>
+<pre class="hljs"><code><div><span class="hljs-comment">&lt;!--SampleC.html--&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>ページタイトル<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>ヘッダ<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">nav</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>ナビゲーション<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>バー<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>メイン要素<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>中身1<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>中身2<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">aside</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>あまり関係ない話<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>コピーライトとか<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<p><a href="https://htmlpreview.github.io/?https://github.com/kcs1959/web-html-css/blob/master/day1/SampleC.html">プレビュー</a></p>
+<ul>
+<li>headタグ：ページタイトルなど、直接ページ表示には関係ない情報を記述する空間</li>
+<li>bodyタグ：ページの内容を書く空間</li>
+<li>headerタグ：ページのヘッダ部分(ロゴとかリンクとか)を記述する場所</li>
+<li>navタグ：サイト内ナビゲーションを作る</li>
+<li>mainタグ：ページのメイン要素を記述する場所</li>
+<li>sectionタグ：見出しの付けられたひとかたまりを表す</li>
+<li>asideタグ：本題と遠い話をする場所</li>
+<li>footerタグ：リンクやコピーライトを書くフッターを記述する場所</li>
+</ul>
+<p>これらは主にコンピュータに何を書いているかを伝えるためのタグであるため、見た目にはほとんど影響しない。</p>
+<h3 id="%E8%BF%BD%E5%8A%A0%E3%81%A7%E3%82%88%E3%81%8F%E4%BD%BF%E3%81%86%E3%82%BF%E3%82%B0">追加でよく使うタグ</h3>
+<h4 id="div%E3%82%BF%E3%82%B0">divタグ</h4>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>なにかの<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>ひとまとまり<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+<p>複数の要素をひとまとめにする役割を持つ。HTMLのみでは見た目に影響しない。CSSなどでまとまりを一気に扱いたい場合に役立つ。</p>
+<h4 id="span%E3%82%BF%E3%82%B0">spanタグ</h4>
+<pre class="hljs"><code><div>適当な長い文章に一部<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>装飾<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>を入れたい
+</div></code></pre>
+<p>これもタグ自体に意味を持つことはないが、CSSと組み合わせることでその部分の見た目を変える。</p>
+<h2 id="head%E8%A6%81%E7%B4%A0%E3%81%AB%E6%9B%B8%E3%81%8F%E3%82%82%E3%81%AE">head要素に書くもの</h2>
+<p>省略</p>
+<p>//TOOD:演習問題</p>
+<h2 id="%E7%94%BB%E5%83%8F%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B">画像を表示する</h2>
+<p>imgタグとsrc属性を使う</p>
+<ul>
+<li>src属性：画像のパスを書く</li>
+<li>alt属性：画像が見つからなかった場合に表示するテキスト</li>
+</ul>
+<p>HTMLファイルと同じディレクトリに写真を用意しよう！</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image.png"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"飼い犬"</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>結果：
+<img src="image.png" alt="飼い犬"></p>
+</blockquote>
+<p>もし画像のパスを間違えている/存在しない場合は</p>
+<blockquote>
+<img src="" alt="飼い犬">
+</blockquote>
+<p>のような表示になる。</p>
+<h3 id="%E3%82%B5%E3%82%A4%E3%82%BA%E3%81%AE%E8%AA%BF%E6%95%B4">サイズの調整</h3>
+<p>imgタグのwidth属性とheight属性を使う</p>
+<pre class="hljs"><code><div><span class="hljs-comment">&lt;!--どちらも指定すると、縦横ピッタリの大きさになる--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image.png"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"200"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!--片方のみ指定すると、画像の元の比率で表示される--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image.png"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"150"</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>結果：</p>
+<img src="image.png" width="100" height="200">
+<img src="image.png" height="150">
+</blockquote>
+<h2 id="%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B">リンクを設定する</h2>
+<p>aタグとhref属性を使う</p>
+<ul>
+<li>href属性：移動したいページのリンクを貼る</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://kcs1959.jp"</span>&gt;</span>KCSホームページ<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>結果：</p>
+<p><a href="https://kcs1959.jp">KCSホームページ</a></p>
+</blockquote>
+<h3 id="%E3%83%91%E3%82%B9">パス</h3>
+<p>imgタグやaタグを使うときは使いたいものへのパスを書く。パスとはファイルへの行き方を示したようなもので、絶対パスと相対パスの2種類がある。</p>
+<h4 id="%E7%B5%B6%E5%AF%BE%E3%83%91%E3%82%B9">絶対パス</h4>
+<p>コンピュータのファイルシステムのルート(最上位)からファイルの場所を表現する方法。</p>
+<pre class="hljs"><code><div>/*例：Windowsの場合*/
+D:\Projects\Web2020HTML_CSS\day1\image.png
+</div></code></pre>
+<p>Web上のもので言えばURLにあたるかな？</p>
+<p>どこから見てもファイルを探すことができるが、長くなってしまったり、ローカルのコンピュータ内のファイルは他から参照できなかったりする。</p>
+<h4 id="%E7%9B%B8%E5%AF%BE%E3%83%91%E3%82%B9">相対パス</h4>
+<p>自分(ファイル)から見て目的のファイルがどこにあるかで表現する方法。</p>
+<p>自分のいるフォルダは「./」で、それより上の階層を示すときは「../」で一つディレクトリを上がれる。</p>
+<pre class="hljs"><code><div>/*ここから見た感じ*/
+./../README.md
+</div></code></pre>
+<blockquote>
+<p>最初の「./」は省略してもよい</p>
+</blockquote>
+<p>Webでは自分の管理するファイルを参照するときは、基本相対パスを使用する。</p>
+<p><a href="https://htmlpreview.github.io/?https://github.com/kcs1959/web-html-css/blob/master/day1/SampleD.html">SampleD.htmlを見る</a></p>
+<p>//TODO: 演習問題作る</p>
+<h1 id="%E3%81%8A%E3%81%97%E3%81%BE%E3%81%84">おしまい</h1>
+<h2 id="%E5%AE%BF%E9%A1%8C">宿題</h2>
+<p>Twitterを作ってきてください</p>
 
 </body>
 </html>
