@@ -302,7 +302,9 @@ htmlタグの中に書かれているlangを、htmlの属性という。
 >	</p>
 >	<p>...</p>
 
-//TODO: 演習問題を考える
+## 演習：HelloWorld
+
+自分の環境でHTMLを表示してみよう
 
 ## HTML5の基本
 
@@ -471,7 +473,15 @@ Webでは自分の管理するファイルを参照するときは、基本相�
 
 [SampleD.htmlを見る](https://htmlpreview.github.io/?https://github.com/kcs1959/web-html-css/blob/master/day1/SampleD.html)
 
-//TODO: 演習問題作る
+## 演習：
+
+> TopPage.html <br/>
+> SubPage<br/>
+> ├image.png<br/>
+> └SubPage.html
+
+的な構成でページを作ってみよう！
+
 
 # おしまい
 
