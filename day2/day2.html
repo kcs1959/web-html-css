@@ -687,6 +687,157 @@ code {
 </table>
 </blockquote>
 <h2 id="%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0">フォーム</h2>
+<p>HTMLはformという機能を使ってWebサーバにリクエストを送ることができる。inputタグを使ってユーザにパラメータを入力させることもできる。</p>
+<p>ex) Googleの検索窓</p>
+<p><img src="img/google.jpg" alt=""></p>
+<p>フォームはひとまとまりをformタグで囲う。</p>
+<ul>
+<li>formタグ: フォームを作る
+<ul>
+<li>action属性: リクエストの送信先</li>
+<li>method属性: リクエストの種類</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/search"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"GET"</span>&gt;</span>
+	<span class="hljs-comment">&lt;!--内容--&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</div></code></pre>
+<h3 id="method%E5%B1%9E%E6%80%A7%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">method属性について</h3>
+<ul>
+<li>GET: パラメータをURLにつけて送る</li>
+<li>POST: パラメータをBodyに格納して送る</li>
+</ul>
+<h3 id="input%E3%82%BF%E3%82%B0">inputタグ</h3>
+<ul>
+<li>inputタグ: フォームの入力を定義する
+<ul>
+<li>type属性: 入力形式を決める</li>
+<li>name属性: パラメータの名前を決める</li>
+<li>value属性: パラメータの初期値</li>
+<li>required属性: 必須項目にする</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"text"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"pass"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"checked"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"radio"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"file"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hiddenValue"</span> <span class="hljs-attr">value</span> =<span class="hljs-string">"hogehoge"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"reset"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"ボタン"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"image"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"img/icon.png"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"q"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"tel"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"number"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"url"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"url"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"mail"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"date"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"date"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>結果:</p>
+<form>
+	<input type="text" name="text"/><br/>
+	<input type="password" name="pass"/><br/>
+	<input type="checkbox" name="checked"/><br/>
+	<input type="radio" name="radio"/><br/>
+	<input type="file" name="file"/><br/>
+	<input type="hidden" name="hiddenValue" value ="hogehoge"/><br/>
+	<input type="submit"/><br/>
+	<input type="reset"/><br/>
+	<input type="button" value="ボタン"/><br/>
+	<input type="image" src="img/icon.png"/><br/>
+	<input type="search" name="q"/><br/>
+	<input type="tel" name="number"/><br/>
+	<input type="url" name="url"/><br/>
+	<input type="email" name="mail"/><br/>
+	<input type="date" name="date"/>
+</form>
+</blockquote>
+<h3 id="%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%83%80%E3%82%A6%E3%83%B3">ドロップダウン</h3>
+<p>クリックすると複数選択肢の現れるやつ</p>
+<ul>
+<li>selectタグ: ドロップダウンメニューを作る
+<ul>
+<li>name属性: 名前を指定</li>
+<li>size属性: メニューの数を指定</li>
+<li>required属性: 必須項目にする</li>
+</ul>
+</li>
+<li>optionタグ: ドロップダウンメニューの項目を作る
+<ul>
+<li>value属性: 選択されたものの値</li>
+<li>selected属性: 元から選択済みにする</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"gender"</span> <span class="hljs-attr">required</span>=<span class="hljs-string">"true"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"male"</span>&gt;</span>男性<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"female"</span> <span class="hljs-attr">selected</span>&gt;</span>女性<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"other"</span>&gt;</span>その他<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>結果:</p>
+<form>
+	<select name="gender" required="true">
+		<option value="male">男性</option>
+		<option value="female" selected>女性</option>
+		<option value="other">その他</option>
+	</select>
+</form>
+</blockquote>
+<blockquote>
+<p>optgroupタグで分類もできる</p>
+</blockquote>
+<h3 id="%E8%A4%87%E6%95%B0%E8%A1%8C%E3%81%AE%E5%85%A5%E5%8A%9B%E6%AC%84">複数行の入力欄</h3>
+<ul>
+<li>textareaタグ: 複数行の文字入力欄を作る
+<ul>
+<li>cols属性: 1行あたりの最大文字数</li>
+<li>rows属性: 入力欄の高さ(行数)</li>
+<li>placeholder属性: ヒントを表示</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"note"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"備考欄"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>結果:</p>
+<form>
+	<textarea name="note" placeholder="備考欄"></textarea>
+</form>
+</blockquote>
+<h3 id="%E3%83%9C%E3%82%BF%E3%83%B3">ボタン</h3>
+<ul>
+<li>buttonタグ: ボタンを作る
+<ul>
+<li>type属性: ボタンの動作を決める</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>確定<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"alert('アラート');"</span>&gt;</span>じゃゔぁ<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>結果:</p>
+<form>
+	<button type="submit">確定</button>
+	<button type="button" onclick="alert('アラート');">じゃゔぁ</button>
+</form>
+</blockquote>
+<h3 id="label%E8%A6%81%E7%B4%A0%E3%81%A7%E4%BD%BF%E3%81%84%E3%82%84%E3%81%99%E3%81%8F%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88">label要素で使いやすくできるよ</h3>
+<h2 id="%E6%BC%94%E7%BF%92%E5%95%8F%E9%A1%8C">演習問題</h2>
+<p>携帯の申し込みページでも作る？</p>
 
 </body>
 </html>

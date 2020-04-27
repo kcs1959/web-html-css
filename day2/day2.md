@@ -335,4 +335,147 @@ table > tr > th,tdの順に入れ子にする。
 
 ## フォーム
 
+HTMLはformという機能を使ってWebサーバにリクエストを送ることができる。inputタグを使ってユーザにパラメータを入力させることもできる。
 
+ex) Googleの検索窓
+
+![](img/google.jpg)
+
+フォームはひとまとまりをformタグで囲う。
+
+* formタグ: フォームを作る
+  * action属性: リクエストの送信先
+  * method属性: リクエストの種類
+
+```HTML
+<form action="/search" method="GET">
+	<!--内容-->
+</form>
+```
+
+### method属性について
+
+* GET: パラメータをURLにつけて送る
+* POST: パラメータをBodyに格納して送る
+
+### inputタグ
+
+* inputタグ: フォームの入力を定義する
+  * type属性: 入力形式を決める
+  * name属性: パラメータの名前を決める
+  * value属性: パラメータの初期値
+  * required属性: 必須項目にする
+
+```HTML
+<form>
+	<input type="text" name="text"/><br/>
+	<input type="password" name="pass"/><br/>
+	<input type="checkbox" name="checked"/><br/>
+	<input type="radio" name="radio"/><br/>
+	<input type="file" name="file"/><br/>
+	<input type="hidden" name="hiddenValue" value ="hogehoge"/><br/>
+	<input type="submit"/><br/>
+	<input type="reset"/><br/>
+	<input type="button" value="ボタン"/><br/>
+	<input type="image" src="img/icon.png"/><br/>
+	<input type="search" name="q"/><br/>
+	<input type="tel" name="number"/><br/>
+	<input type="url" name="url"/><br/>
+	<input type="email" name="mail"/><br/>
+	<input type="date" name="date"/>
+</form>
+```
+
+>結果:
+><form>
+>	<input type="text" name="text"/><br/>
+>	<input type="password" name="pass"/><br/>
+>	<input type="checkbox" name="checked"/><br/>
+>	<input type="radio" name="radio"/><br/>
+>	<input type="file" name="file"/><br/>
+>	<input type="hidden" name="hiddenValue" value ="hogehoge"/><br/>
+>	<input type="submit"/><br/>
+>	<input type="reset"/><br/>
+>	<input type="button" value="ボタン"/><br/>
+>	<input type="image" src="img/icon.png"/><br/>
+>	<input type="search" name="q"/><br/>
+>	<input type="tel" name="number"/><br/>
+>	<input type="url" name="url"/><br/>
+>	<input type="email" name="mail"/><br/>
+>	<input type="date" name="date"/>
+></form>
+
+### ドロップダウン
+
+クリックすると複数選択肢の現れるやつ
+
+* selectタグ: ドロップダウンメニューを作る
+  * name属性: 名前を指定
+  * size属性: メニューの数を指定
+  * required属性: 必須項目にする
+* optionタグ: ドロップダウンメニューの項目を作る
+  * value属性: 選択されたものの値
+  * selected属性: 元から選択済みにする
+
+```HTML
+<form>
+	<select name="gender" required="true">
+		<option value="male">男性</option>
+		<option value="female" selected>女性</option>
+		<option value="other">その他</option>
+	</select>
+</form>
+```
+
+>結果:
+><form>
+>	<select name="gender" required="true">
+>		<option value="male">男性</option>
+>		<option value="female" selected>女性</option>
+>		<option value="other">その他</option>
+>	</select>
+></form>
+
+> optgroupタグで分類もできる
+
+### 複数行の入力欄
+
+* textareaタグ: 複数行の文字入力欄を作る
+  * cols属性: 1行あたりの最大文字数
+  * rows属性: 入力欄の高さ(行数)
+  * placeholder属性: ヒントを表示
+
+```HTML
+<form>
+	<textarea name="note" placeholder="備考欄"></textarea>
+</form>
+```
+
+>結果:
+><form>
+>	<textarea name="note" placeholder="備考欄"></textarea>
+></form>
+
+### ボタン
+
+* buttonタグ: ボタンを作る
+  * type属性: ボタンの動作を決める
+
+```HTML
+<form>
+	<button type="submit">確定</button>
+	<button type="button" onclick="alert('アラート');">じゃゔぁ</button>
+</form>
+```
+
+>結果:
+><form>
+>	<button type="submit">確定</button>
+>	<button type="button" onclick="alert('アラート');">じゃゔぁ</button>
+></form>
+
+### label要素で使いやすくできるよ
+
+## 演習問題
+
+携帯の申し込みページでも作る？
