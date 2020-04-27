@@ -11,9 +11,9 @@
 
 リストをHTMLで表示する場合は、リストとなる部分をul/olタグで囲み、中の項目をそれぞれliタグで囲む
 
-* ulタグ: Unordered List ... 順序なしリスト
-* olタグ: Ordered List ... 順序ありリスト
-* liタグ: List ... リストの項目
+* [ulタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/ul): Unordered List ... 順序なしリスト
+* [olタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/ol): Ordered List ... 順序ありリスト
+* [liタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/li): List ... リストの項目
 
 ### ulタグ(順序なしリスト)
 
@@ -111,9 +111,9 @@
 
 Q&Aや日付と記事タイトルのように、対になった情報のためのリスト
 
-* dlタグ: Definition List ... 定義リスト
-* dtタグ: Definition Term ... 定義リスト内で用語に使う
-* ddタグ: Definition Description ... 定義リスト内で説明に使う
+* [dlタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/dl): Definition List ... 定義リスト
+* [dtタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/dt): Definition Term ... 定義リスト内で用語に使う
+* [ddタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/dd): Definition Description ... 定義リスト内で説明に使う
 
 ```HTML
 <dl>
@@ -146,7 +146,7 @@ dtとddのセットはそれぞれ1つ以上あればよい(dt一つに対して
 
 ![nav](img/nav.jpg)
 
-* navタグ: ナビゲーションを表す
+* [navタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/nav): ナビゲーションを表す
 
 ```HTML
 <nav>
@@ -174,17 +174,17 @@ dtとddのセットはそれぞれ1つ以上あればよい(dt一つに対して
 
 表はtableタグで囲う。trタグで1行ずつ作っていく。
 
-* tableタグ: 表を作る
+* [tableタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/table): 表を作る
 * 中身の要素
-  * trタグ: Table Row ... 行を作る
-  * tdタグ: Table Data ... セルを表す
-  * thタグ: Table Header ... 見出しセル
+  * [trタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/tr): Table Row ... 行を作る
+  * [tdタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/td): Table Data ... セルを表す
+  * [thタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/th): Table Header ... 見出しセル
 * 行の意味づけ(見た目に影響しない)
-  * theadタグ: ヘッダー部分の行グループ
-  * tbodyタグ: メインの行グループ
-  * tfootタグ: フッター部分の行グループ
+  * [theadタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/thead): ヘッダー部分の行グループ
+  * [tbodyタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/tbody): メインの行グループ
+  * [tfootタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/tfoot): フッター部分の行グループ
 * その他
-  * captionタグ: 表の見出しや説明
+  * [captionタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/caption): 表の見出しや説明
 
 ### 基本
 
@@ -268,7 +268,7 @@ table > tr > th,tdの順に入れ子にする。
 
 ### その他
 
-* th#scope属性: rowとcolumnどちらにデータが続いているかを指定
+* th - scope属性: rowとcolumnどちらにデータが続いているかを指定
 
 ```HTML
 <table>
@@ -343,7 +343,7 @@ ex) Googleの検索窓
 
 フォームはひとまとまりをformタグで囲う。
 
-* formタグ: フォームを作る
+* [formタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/form): フォームを作る
   * action属性: リクエストの送信先
   * method属性: リクエストの種類
 
@@ -360,7 +360,7 @@ ex) Googleの検索窓
 
 ### inputタグ
 
-* inputタグ: フォームの入力を定義する
+* [inputタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/input): フォームの入力を定義する
   * type属性: 入力形式を決める
   * name属性: パラメータの名前を決める
   * value属性: パラメータの初期値
@@ -409,11 +409,11 @@ ex) Googleの検索窓
 
 クリックすると複数選択肢の現れるやつ
 
-* selectタグ: ドロップダウンメニューを作る
+* [selectタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/select): ドロップダウンメニューを作る
   * name属性: 名前を指定
   * size属性: メニューの数を指定
   * required属性: 必須項目にする
-* optionタグ: ドロップダウンメニューの項目を作る
+* [optionタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/option): ドロップダウンメニューの項目を作る
   * value属性: 選択されたものの値
   * selected属性: 元から選択済みにする
 
@@ -440,7 +440,7 @@ ex) Googleの検索窓
 
 ### 複数行の入力欄
 
-* textareaタグ: 複数行の文字入力欄を作る
+* [textareaタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/textarea): 複数行の文字入力欄を作る
   * cols属性: 1行あたりの最大文字数
   * rows属性: 入力欄の高さ(行数)
   * placeholder属性: ヒントを表示
@@ -458,7 +458,7 @@ ex) Googleの検索窓
 
 ### ボタン
 
-* buttonタグ: ボタンを作る
+* [buttonタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/button): ボタンを作る
   * type属性: ボタンの動作を決める
 
 ```HTML

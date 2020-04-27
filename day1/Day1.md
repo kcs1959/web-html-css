@@ -11,7 +11,7 @@
 
 プログラミング言語と言えば色々あるが、
 Webサイトを作れる言語は現状ほぼ一本化されている。
-それが、HTML、CSSとJavaScriptの組み合わせだ。
+それが、HTML、CSSとJavaScriptの組み合わせである。
 
 ## HTML(HyperText Markup Language)
 
@@ -87,6 +87,8 @@ PHPは[去年の資料](https://github.com/kcs1959/web-php)があるので興味
 既に好きなものがある人はそれを使おう。
 
 ない人は[https://code.visualstudio.com/](https://code.visualstudio.com/)からVisual Studio Codeをダウンロード！
+
+よく分からない場合はブラウザ上でできる[CodePen](https://codepen.io/)を使うのもあり
 
 # HTMLの基本
 
@@ -223,7 +225,7 @@ IVをモデルに全トランジスタ化を行い，さらに浮動小数点演
 <!DOCTYPE html>
 ```
 
-2行目：HTMLの内容はhtmlタグで囲う必要がある(省略可能な場合も)。
+2行目：HTMLの内容は[htmlタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/html)で囲う必要がある(省略可能な場合も)。
 
 > HTML5的にはhtmlタグの中にはheadタグとbodyタグしか書いてはいけないので注意!
 
@@ -348,20 +350,20 @@ HTML5ではタグの種類も増え、役割が分散されていっている。
 
 [プレビュー](https://htmlpreview.github.io/?https://github.com/kcs1959/web-html-css/blob/master/day1/SampleC.html)
 
-* headタグ：ページタイトルなど、直接ページ表示には関係ない情報を記述する空間
-* bodyタグ：ページの内容を書く空間
-* headerタグ：ページのヘッダ部分(ロゴとかリンクとか)を記述する場所
-* navタグ：サイト内ナビゲーションを作る
-* mainタグ：ページのメイン要素を記述する場所
-* sectionタグ：見出しの付けられたひとかたまりを表す
-* asideタグ：本題と遠い話をする場所
-* footerタグ：リンクやコピーライトを書くフッターを記述する場所
+* [headタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/head)：ページタイトルなど、直接ページ表示には関係ない情報を記述する空間
+* [bodyタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/body)：ページの内容を書く空間
+* [headerタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/header)：ページのヘッダ部分(ロゴとかリンクとか)を記述する場所
+* [navタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/nav)：サイト内ナビゲーションを作る
+* [mainタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/main)：ページのメイン要素を記述する場所
+* [sectionタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/section)：見出しの付けられたひとかたまりを表す
+* [asideタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/aside)：本題と遠い話をする場所
+* [footerタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/footer)：リンクやコピーライトを書くフッターを記述する場所
 
 これらは主にコンピュータに何を書いているかを伝えるためのタグであるため、見た目にはほとんど影響しない。
 
 ### 追加でよく使うタグ
 
-#### divタグ
+#### [divタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/div)
 
 ```HTML
 <div>
@@ -372,7 +374,7 @@ HTML5ではタグの種類も増え、役割が分散されていっている。
 
 複数の要素をひとまとめにする役割を持つ。HTMLのみでは見た目に影響しない。CSSなどでまとまりを一気に扱いたい場合に役立つ。
 
-#### spanタグ
+#### [spanタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/span)
 
 ```HTML
 適当な長い文章に一部<span>装飾</span>を入れたい
@@ -388,7 +390,7 @@ HTML5ではタグの種類も増え、役割が分散されていっている。
 
 ## 画像を表示する
 
-imgタグとsrc属性を使う
+[imgタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Element/img)とsrc属性を使う
 
 * src属性：画像のパスを書く
 * alt属性：画像が見つからなかった場合に表示するテキスト
@@ -487,4 +489,4 @@ Webでは自分の管理するファイルを参照するときは、基本相�
 
 ## 宿題
 
-Twitterを作ってきてください
+いや特に...
