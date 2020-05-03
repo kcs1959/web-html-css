@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day3.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+  color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+  color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #8959a8;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: white;
+  color: #4d4d4c;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E6%A6%82%E8%A6%81">概要</h1>
+<p>教科書P135~198</p>
+<ul>
+<li>CSSの基本</li>
+<li>CSSでスタイリング</li>
+<li>CSSでレイアウト</li>
+</ul>
+<h2 id="css%E3%81%A8%E3%81%AF">CSSとは？</h2>
+<p>HTML文書に対して色や大きさ、配置などの見た目を設定する</p>
+<p>拡張子は.css</p>
+<blockquote>
+<p>style.css の表記が多いかな？</p>
+</blockquote>
+<h2 id="%E8%A8%98%E8%BF%B0%E3%83%AB%E3%83%BC%E3%83%ABcss%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%86%85">記述ルール(CSSファイル内)</h2>
+<p>[セレクタ] { [プロパティ]: [値]; }</p>
+<ul>
+<li>セレクタ: スタイルを設定する箇所の名前やid</li>
+<li>プロパティ: 何を装飾するかの指定</li>
+<li>値: 色やピクセル数など</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">h1</span> {
+	<span class="hljs-attribute">color</span>: <span class="hljs-number">#ff0000</span>;
+	<span class="hljs-attribute">line-height</span>: <span class="hljs-number">1em</span>;
+	<span class="hljs-attribute">font-size</span>: <span class="hljs-number">40px</span>;
+}
+</div></code></pre>
+<h2 id="css%E7%B5%84%E3%81%BF%E8%BE%BC%E3%81%BF%E3%81%AE%E6%96%B9%E6%B3%95">CSS組み込みの方法</h2>
+<ul>
+<li>インライン</li>
+<li>エンベッド</li>
+<li>別ファイルから読み込み ←基本はこれ使う</li>
+</ul>
+<h3 id="%E3%82%A4%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3">インライン</h3>
+<p>style属性内にプロパティと値を記述する</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color: #ff0000;"</span>&gt;</span>赤い見出し<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>結果:</p>
+<h1 style="color: #ff0000;">赤い見出し</h1>
+</blockquote>
+<h3 id="%E3%82%A8%E3%83%B3%E3%83%99%E3%83%83%E3%83%89">エンベッド</h3>
+<p>headタグ内にstyleタグを用意して記述する</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+			<span class="hljs-selector-tag">h1</span> {
+				<span class="hljs-attribute">color</span>: <span class="hljs-number">#ff0000</span>;
+			}
+		</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>見出しだよ!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>結果:</p>
+<iframe src="./SampleF.html"></iframe>
+</blockquote>
+<p>headに記述したcssはhtmlファイル全体に適用される</p>
+<h3 id="%E5%88%A5%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">別ファイル</h3>
+<p>.cssファイルを用意して読み込む</p>
+<p>style.css</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">h1</span> {
+	<span class="hljs-attribute">color</span>: <span class="hljs-number">#00ff00</span>;
+}
+</div></code></pre>
+<p>index.html</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+		<span class="hljs-comment">&lt;!--同じ階層にstyle.cssがあるとする--&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"./style.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>見出しだよ!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<p>同様の結果が得られる(SampleG参照)</p>
+<h2 id="%E3%82%BB%E3%83%AC%E3%82%AF%E3%82%BF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">セレクタについて</h2>
+<p>p, h1などhtmlタグの名前と同じ(タイプセレクタ) → 読み込まれたhtmlのそのタグ全体に適用される</p>
+<h3 id="id%E3%82%BB%E3%83%AC%E3%82%AF%E3%82%BF">IDセレクタ</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-id">#hogehoge</span> {
+	<span class="hljs-attribute">color</span>: <span class="hljs-number">#0000ff</span>;
+}
+</div></code></pre>
+<p>みたいな感じで前に#つけるとIDセレクタになる</p>
+<p>このidを指定したタグにスタイルを適用する</p>
+<p>idはHTMLファイルに一意でなければならない</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hogehoge"</span>&gt;</span>文字が青くなる<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>特に変わらない<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+</div></code></pre>
+<p>NG例</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hogehoge"</span>&gt;</span>idを<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hogehoge"</span>&gt;</span>２回以上適用するのはNG<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+</div></code></pre>
+<blockquote>
+<p>identitiyなのでね</p>
+</blockquote>
+<h3 id="class%E3%82%BB%E3%83%AC%E3%82%AF%E3%82%BF">classセレクタ</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.fugafuga</span> {
+	<span class="hljs-attribute">color</span>: <span class="hljs-number">#0000ff</span>;
+}
+</div></code></pre>
+<p>みたいな感じで前に.つけるとclassセレクタになる</p>
+<p>このclassを指定したタグにスタイルを適用する</p>
+<p>classはHTML内で何回使っても良い</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fugafuga"</span>&gt;</span>文字が青くなる<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>特に変わらない<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fugafuga"</span>&gt;</span>何回使っても良い<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+</div></code></pre>
+<h3 id="%E5%AD%90%E5%AD%AB%E3%82%BB%E3%83%AC%E3%82%AF%E3%82%BF">子孫セレクタ</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.fuga</span> <span class="hljs-selector-tag">p</span> {
+	<span class="hljs-attribute">color</span>: <span class="hljs-number">#ff0000</span>
+}
+</div></code></pre>
+<p>セレクタに半角スペースを開けて続けてセレクタを記述するとその子孫のみに適用するものになる</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fuga"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>赤くなる<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">\div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>赤くならない<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<h2 id="css%E3%81%AE%E5%84%AA%E5%85%88%E9%A0%86%E4%BD%8D">CSSの優先順位</h2>
+<p>読み込み順番で考える</p>
+<p>CSSファイルは上から順に読み込むので下のほうが優先度が高い</p>
+<p>CSSファイルに書くよりインラインの方が優先度が高い</p>
+<p>IDセレクタ &gt; classセレクタ &gt; タイプセレクタ</p>
+<h2 id="%E6%93%AC%E4%BC%BC%E3%82%AF%E3%83%A9%E3%82%B9">擬似クラス</h2>
+<p>特定の状態にある時(hoverとか)のスタイルを記述する</p>
+<p>[セレクタ] : [擬似クラス] {</p>
+<p>}</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:link</span> {
+	<span class="hljs-attribute">color</span>: <span class="hljs-number">#ff0000</span>;
+}
+</div></code></pre>
+<p>他にも
+link:hover, link:visited, li:first-childとかがある</p>
+<h2 id="%E7%96%91%E4%BC%BC%E8%A6%81%E7%B4%A0">疑似要素</h2>
+<p>要素のある特定の箇所にスタイルを適用する</p>
+<p>[セレクタ] :: [疑似要素] {</p>
+<p>}</p>
+<p>見出しの前に星を追加する</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">h2</span><span class="hljs-selector-pseudo">::before</span> {
+	<span class="hljs-attribute">content</span>: <span class="hljs-string">"★"</span>;
+}
+</div></code></pre>
+<p>他にも
+::after, ::first-line, ::first-letter などがある</p>
+<h2 id="%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AA%E3%83%B3%E3%82%B0">スタイリング</h2>
+<h3 id="%E6%96%87%E5%AD%97%E3%82%B5%E3%82%A4%E3%82%BA">文字サイズ</h3>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/font-size">font-sizeプロパティ</a>で設定</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">p</span> {
+	<span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.6em</span>;
+}
+</div></code></pre>
+<p>単位がたくさんある</p>
+<ul>
+<li>em: 親要素の1文字を1emとしたときの大きさ</li>
+<li>rem: htmlタグで指定された1文字を1remとしたときの大きさ</li>
+<li>px: 画面のピクセル数</li>
+<li>mm: 長さ(印刷用)</li>
+</ul>
+<p>基本emを使えばいいんじゃないかな</p>
+<h3 id="%E8%A1%8C%E9%96%93">行間</h3>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/line-height">line-heightプロパティ</a>で設定</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">p</span> {
+	<span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.6</span>;
+}
+</div></code></pre>
+<p>単位はfont-sizeと同じだが、何も指定しないとフォントサイズにその数字を掛けたものになる</p>
+<p>文字の頭から次行の文字の頭までの長さ(つまりline-height: 1;で行間0)</p>
+
+</body>
+</html>
