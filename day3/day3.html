@@ -366,11 +366,10 @@ code {
     });
   </script>
 <h1 id="%E6%A6%82%E8%A6%81">概要</h1>
-<p>教科書P135~198</p>
+<p>教科書P135~182</p>
 <ul>
 <li>CSSの基本</li>
 <li>CSSでスタイリング</li>
-<li>CSSでレイアウト</li>
 </ul>
 <h2 id="css%E3%81%A8%E3%81%AF">CSSとは？</h2>
 <p>HTML文書に対して色や大きさ、配置などの見た目を設定する</p>
@@ -536,6 +535,130 @@ link:hover, link:visited, li:first-childとかがある</p>
 </div></code></pre>
 <p>単位はfont-sizeと同じだが、何も指定しないとフォントサイズにその数字を掛けたものになる</p>
 <p>文字の頭から次行の文字の頭までの長さ(つまりline-height: 1;で行間0)</p>
+<h3 id="%E6%9B%B8%E4%BD%93font">書体(Font)</h3>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/font-family">font-familyプロパティ</a>で設定</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">p</span> {
+	<span class="hljs-attribute">font-family</span>: serif;
+}
+</div></code></pre>
+<p>generic-nameを使うとブラウザ・OSごとに適切なフォントを選んでくれる</p>
+<ul>
+<li>serif: 明朝体</li>
+<li>sans-serif: ゴシック体</li>
+<li>monospace: 等幅フォント</li>
+<li>cursive: 筆記体</li>
+</ul>
+<p>その他直接フォント名を指定することもできる。
+フォント名に空白が含まれる場合には名前をダブルクオーテーション&quot;&quot;で囲う。</p>
+<ul>
+<li>&quot;Arial&quot;, &quot;MS P明朝&quot;, &quot;Hiragino Kaku Gothic Pro&quot; とか...</li>
+</ul>
+<p><a href="https://w3g.jp/sample/css/font-family">一覧</a></p>
+<p>フォント指定した場合でもデバイス上にあるフォントを探すので存在しないこともある</p>
+<p>→コンマ,区切りで複数のフォントを指定できる(前から優先して選ばれる)</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">p</span> {
+	<span class="hljs-attribute">font-family</span>: <span class="hljs-string">"Hiragino Kaku Gothic Pro"</span>, <span class="hljs-string">"Arial"</span>, sans-serif;
+}
+</div></code></pre>
+<p>同じフォントを指定しても環境毎に見た目が変わるの怖いね！<a href="https://ics.media/entry/200317/">参照</a></p>
+<h4 id="web%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88">Webフォント</h4>
+<p>端末に依存せず一貫したフォントを使いたい場合は「Webフォント」も利用できる</p>
+<p>Googleとかが<a href="https://googlefonts.github.io/japanese/">公開してくれている</a>(日本語フォント嬉しい)</p>
+<p>使う場合はHTMLのheadにlinkを貼る</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://fonts.googleapis.com/css?family=M+PLUS+1p"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">h1</span> {
+	<span class="hljs-attribute">font-family</span>: <span class="hljs-string">"M PLUS 1p"</span>;
+}
+</div></code></pre>
+<blockquote>
+<p>あとWebサイトへの直接の埋め込みとかもできる</p>
+</blockquote>
+<h3 id="%E6%96%87%E5%AD%97%E8%89%B2">文字色</h3>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/color">colorプロパティ</a>で設定</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">p</span> {
+	<span class="hljs-attribute">color</span>: <span class="hljs-number">#FF5722</span>; <span class="hljs-comment">/*16進数で指定 Material Deep Orange*/</span>
+}
+
+<span class="hljs-selector-tag">h1</span> {
+	<span class="hljs-attribute">color</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-number">255</span>,<span class="hljs-number">152</span>,<span class="hljs-number">0</span>); <span class="hljs-comment">/*0-255の値で指定 Material Orange*/</span>
+}
+
+<span class="hljs-selector-tag">h2</span> {
+	<span class="hljs-attribute">color</span>: red; <span class="hljs-comment">/*色名で指定*/</span>
+}
+</div></code></pre>
+<p>色は赤緑青それぞれ256段階、計1677万7216色を指定できる。</p>
+<p>それを#から始まる2桁ごとの16進数(00-ff)か、整数(0-255)で記述する</p>
+<p>数字が大きいほどその色の影響が大きい</p>
+<ul>
+<li>#ff0000-&gt; 赤</li>
+<li>#000000 -&gt; 黒</li>
+<li>#ffffff -&gt; 白</li>
+<li>#808080 -&gt; 灰色</li>
+</ul>
+<p><a href="https://www.google.com/search?q=color+picker">GoogleのColor Picker</a>とか使って探そう</p>
+<p>色名で指定できる色は<a href="https://developer.mozilla.org/ja/docs/Web/CSS/color_value">こちら参照</a></p>
+<h3 id="%E8%83%8C%E6%99%AF%E8%89%B2">背景色</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">h1</span> {
+	<span class="hljs-attribute">background-color</span>: <span class="hljs-number">#ff0000</span>;
+}
+</div></code></pre>
+<h3 id="%E4%BD%99%E7%99%BD%E5%86%85%E9%83%A8">余白(内部)</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">h1</span> {
+	<span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;
+}
+</div></code></pre>
+<p>部分的に指定したい場合は
+padding-top/padding-left/padding-right/padding-bottom
+を使う</p>
+<h3 id="%E5%A4%96%E6%9E%A0">外枠</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">h1</span> {
+	<span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#121212</span>;
+}
+</div></code></pre>
+<p>[線の太さ] [線の種類] [色] で指定</p>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/border">線の種類</a></p>
+<ul>
+<li>solid: 実線</li>
+<li>double: 2本線</li>
+<li>dashed: 破線</li>
+</ul>
+<p>部分的に指定したい場合は
+border-top/border-left/border-right/border-bottom
+を使う</p>
+<h3 id="%E8%83%8C%E6%99%AF%E7%94%BB%E5%83%8F">背景画像</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">h1</span> {
+	<span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(./image/star.png);
+	<span class="hljs-attribute">background-repeat</span>: no-repeat;
+}
+</div></code></pre>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/background-image">background-image</a></p>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/background-repeat">background-repeat</a></p>
+<h3 id="%E5%AD%97%E4%B8%8B%E3%81%92">字下げ</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">p</span> {
+	<span class="hljs-attribute">text-indent</span>: <span class="hljs-number">1em</span>;
+}
+</div></code></pre>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/text-indent">text-indent</a></p>
+<h3 id="%E6%96%87%E5%AD%97%E6%8F%83%E3%81%88">文字揃え</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">p</span> {
+	<span class="hljs-attribute">text-align</span>: center;
+}
+</div></code></pre>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/text-align">text-align</a></p>
+<ul>
+<li>left, right, center, justify</li>
+</ul>
+<h3 id="%E5%AD%97%E9%96%93">字間</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">p</span> {
+	<span class="hljs-attribute">letter-spacing</span>: <span class="hljs-number">0.5em</span>;
+}
+</div></code></pre>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/CSS/letter-spacing">letter-spacing</a></p>
+<h1 id="%E3%81%8A%E3%81%97%E3%81%BE%E3%81%84">おしまい</h1>
 
 </body>
 </html>

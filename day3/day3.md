@@ -1,10 +1,9 @@
 # 概要
 
-教科書P135~198
+教科書P135~182
 
 * CSSの基本
 * CSSでスタイリング
-* CSSでレイアウト
 
 ## CSSとは？
 
@@ -245,4 +244,176 @@ p {
 
 文字の頭から次行の文字の頭までの長さ(つまりline-height: 1;で行間0)
 
+### 書体(Font)
 
+[font-familyプロパティ](https://developer.mozilla.org/ja/docs/Web/CSS/font-family)で設定
+
+```CSS
+p {
+	font-family: serif;
+}
+```
+
+generic-nameを使うとブラウザ・OSごとに適切なフォントを選んでくれる
+* serif: 明朝体
+* sans-serif: ゴシック体
+* monospace: 等幅フォント
+* cursive: 筆記体
+
+その他直接フォント名を指定することもできる。
+フォント名に空白が含まれる場合には名前をダブルクオーテーション""で囲う。
+* "Arial", "MS P明朝", "Hiragino Kaku Gothic Pro" とか...
+
+[一覧](https://w3g.jp/sample/css/font-family)
+
+フォント指定した場合でもデバイス上にあるフォントを探すので存在しないこともある
+
+→コンマ,区切りで複数のフォントを指定できる(前から優先して選ばれる)
+
+```CSS
+p {
+	font-family: "Hiragino Kaku Gothic Pro", "Arial", sans-serif;
+}
+```
+
+同じフォントを指定しても環境毎に見た目が変わるの怖いね！[参照](https://ics.media/entry/200317/)
+
+#### Webフォント
+
+端末に依存せず一貫したフォントを使いたい場合は「Webフォント」も利用できる
+
+Googleとかが[公開してくれている](https://googlefonts.github.io/japanese/)(日本語フォント嬉しい)
+
+使う場合はHTMLのheadにlinkを貼る
+
+```HTML
+<head>
+	<link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+</head>
+```
+
+```CSS
+h1 {
+	font-family: "M PLUS 1p";
+}
+```
+
+> あとWebサイトへの直接の埋め込みとかもできる
+
+### 文字色
+
+[colorプロパティ](https://developer.mozilla.org/ja/docs/Web/CSS/color)で設定
+
+```CSS
+p {
+	color: #FF5722; /*16進数で指定 Material Deep Orange*/
+}
+
+h1 {
+	color: rgb(255,152,0); /*0-255の値で指定 Material Orange*/
+}
+
+h2 {
+	color: red; /*色名で指定*/
+}
+```
+
+色は赤緑青それぞれ256段階、計1677万7216色を指定できる。
+
+それを#から始まる2桁ごとの16進数(00-ff)か、整数(0-255)で記述する
+
+数字が大きいほどその色の影響が大きい
+
+* #ff0000-> 赤
+* #000000 -> 黒
+* #ffffff -> 白
+* #808080 -> 灰色
+
+[GoogleのColor Picker](https://www.google.com/search?q=color+picker)とか使って探そう
+
+色名で指定できる色は[こちら参照](https://developer.mozilla.org/ja/docs/Web/CSS/color_value)
+
+### 背景色
+
+```CSS
+h1 {
+	background-color: #ff0000;
+}
+```
+
+### 余白(内部)
+
+```CSS
+h1 {
+	padding: 10px;
+}
+```
+
+部分的に指定したい場合は
+padding-top/padding-left/padding-right/padding-bottom
+を使う
+
+### 外枠
+
+```CSS
+h1 {
+	border: 1px solid #121212;
+}
+```
+
+[線の太さ] [線の種類] [色] で指定
+
+[線の種類](https://developer.mozilla.org/ja/docs/Web/CSS/border)
+* solid: 実線
+* double: 2本線
+* dashed: 破線
+
+部分的に指定したい場合は
+border-top/border-left/border-right/border-bottom
+を使う
+
+### 背景画像
+
+```CSS
+h1 {
+	background-image: url(./image/star.png);
+	background-repeat: no-repeat;
+}
+```
+
+[background-image](https://developer.mozilla.org/ja/docs/Web/CSS/background-image)
+
+[background-repeat](https://developer.mozilla.org/ja/docs/Web/CSS/background-repeat)
+
+### 字下げ
+
+```CSS
+p {
+	text-indent: 1em;
+}
+```
+
+[text-indent](https://developer.mozilla.org/ja/docs/Web/CSS/text-indent)
+
+### 文字揃え
+
+```CSS
+p {
+	text-align: center;
+}
+```
+
+[text-align](https://developer.mozilla.org/ja/docs/Web/CSS/text-align)
+* left, right, center, justify
+
+### 字間
+
+```CSS
+p {
+	letter-spacing: 0.5em;
+}
+```
+
+[letter-spacing](https://developer.mozilla.org/ja/docs/Web/CSS/letter-spacing)
+
+# おしまい
