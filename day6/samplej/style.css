@@ -1,0 +1,158 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+main {
+	width: 960px;
+	margin: 0 auto;
+	font-size: 12px;
+}
+
+.important {
+	box-sizing: border-box;
+	width: 960px;
+	border: 1px solid red;
+	display: flex;
+	flex-direction: row;
+	margin-top: 32px;
+}
+
+.important h2 {
+	color: red;
+	margin: 4px;
+}
+
+.important dl {
+	border-left: 1px dotted red;
+	padding-left: 4px;
+	margin: 4px;
+}
+
+.important dl dt {
+	width: 72px;
+	float: left;
+}
+
+.important dl dd {
+	margin-left: 96px;
+	color: red;
+}
+
+.content-horizontal {
+	display: flex;
+	flex-direction: row;
+	width: 960px;
+	margin-top: 16px;
+	align-items: baseline;
+}
+
+.content-horizontal .content-h2 {
+	display: flex;
+	align-items: center;
+	height: 47px;
+	width: 100%;
+	background-color: green;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+.content-horizontal .content-h2 h2 {
+	border-left: 2px solid greenyellow;
+	padding-left: 4px;
+	margin-left: 4px;
+	color: white;
+}
+
+.whatsnew {
+	box-sizing: border-box;
+	width: 350px;
+	border-radius: 4px;
+	box-shadow:0 0 2px 2px #00000040;
+	height: auto;
+}
+
+.whatsnew dl {
+	margin: 8px;
+}
+
+.whatsnew dt {
+	float: left;
+	width: 72px;
+}
+
+.whatsnew dd {
+	padding-left: 96px;
+	border-bottom: 1px dotted green;
+	margin: 8px 0;
+	color: green;
+}
+
+.whatsnew dd:last-child {
+	border-bottom: none;
+}
+
+.pickup {
+	box-sizing: border-box;
+	width: 400px;
+	border-radius: 4px;
+	box-shadow:0 0 2px 2px #00000040;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 0 7.5px;
+}
+
+.pickup h2 {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.pickup .banner {
+	box-sizing: border-box;
+	width: 169px;
+	margin: 4px;
+	box-shadow:0 0 1px 1px #00000040;
+	margin: 15.5px;
+	border-radius: 2px;
+}
+
+.pickup .banner img {
+	width: 169px;
+	height: 64px;
+}
+
+.pickup .banner h3 {
+	font-size: 10px;
+	text-align: center;
+}
+
+.rightList {
+	box-sizing: border-box;
+	width: 195px;
+}
+
+.rightList li {
+	list-style-type: none;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 8px 0;
+}
+
+.rightList li + li {
+	border-top: 1px solid green;
+}
+
+.rightList li p {
+	width: 96px;
+	margin: 2px;
+}
+
+.rightList li img {
+	width: 99px;
+	height: 55px;
+	border-left: 1px dotted green;
+	padding-left: 2px;
+}
