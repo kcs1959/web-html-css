@@ -24,6 +24,7 @@ img {
 	margin: 0 auto;
 	width: 960px;
 	height: 131px;
+	max-width: 100%;
 }
 
 .header_layout #logo {
@@ -50,6 +51,8 @@ nav {
 	margin-left: 128px;
 	padding: 8px;
 	width: calc(960px - 128px);
+	max-width: calc(100% - 128px);
+	height: 54px;
 }
 
 nav ul {
@@ -69,6 +72,10 @@ nav ul li {
 	list-style-type: none;
 	text-align: center;
 	border-left: 1px solid #808080;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	max-width: 0;
 }
 
 nav ul li:last-child {
@@ -91,4 +98,73 @@ nav ul li:hover {
 	width: 960px;
 	margin: 0 auto;
 	display: block;
+	max-width: 100%;
+}
+
+@media screen and (max-width: 896px) {
+	.header_layout {
+		height: 56px;
+	}
+
+	.header_bg {
+		display: none;
+	}
+
+	.header_layout #logo {
+		height: 56px;
+	}
+
+	.header_layout #menu_button {
+		position: absolute;
+		right: 0;
+		top: 0;
+		display: block;
+		height: 56px;
+		width: 56px;
+		z-index: 1;
+	}
+
+	.header_layout #menu_button:hover ~ nav {
+		bottom: -200px;
+	}
+
+	nav {
+		height: 200px;
+		width: 100%;
+		position: absolute;
+		bottom: 56px;
+		padding: 0;
+		transition: bottom 2.0s;
+		background-color: teal;
+	}
+
+	nav:hover {
+		bottom: -200px;
+	}
+
+	nav ul {
+		flex-direction: column;
+		display: flex;
+	}
+
+	nav ul li {
+		height: 40px;
+		margin: 0 8px;
+		display: block;
+		max-width: none;
+		border-left: none;
+		border-bottom: 1px solid #808080;
+		color: white;
+	}
+
+	nav ul li:last-child {
+		border-right: none;
+		border-bottom: none;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.header_layout #leading {
+		display: none;
+	}
 }

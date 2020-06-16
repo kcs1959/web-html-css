@@ -6,6 +6,7 @@
 
 main {
 	width: 960px;
+	max-width: 100%;
 	margin: 0 auto;
 	font-size: 12px;
 }
@@ -17,6 +18,9 @@ main {
 	display: flex;
 	flex-direction: row;
 	margin-top: 32px;
+	max-width: calc(100% - 16px);
+	margin-left: 8px;
+	margin-right: 8px;
 }
 
 .important h2 {
@@ -46,6 +50,7 @@ main {
 	width: 960px;
 	margin-top: 16px;
 	align-items: baseline;
+	max-width: 100%;
 }
 
 .content-horizontal .content-h2 {
@@ -155,4 +160,35 @@ main {
 	height: 55px;
 	border-left: 1px dotted green;
 	padding-left: 2px;
+}
+
+@media screen and (max-width: 896px) {
+	.content-horizontal {
+		flex-direction: column;
+		padding: 8px;
+	}
+
+	.whatsnew {
+		width: 100%;
+	}
+
+	.pickup {
+		width: 100%;
+		margin: 16px 0;
+	}
+
+	.rightList {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.rightList li {
+		margin: 0 auto;
+	}
+
+	.rightList li p {
+		width: 200px;
+	}
 }
