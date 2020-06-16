@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day6.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+  color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+  color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #8959a8;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: white;
+  color: #4d4d4c;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E6%A6%82%E8%A6%81">概要</h1>
+<ul>
+<li>レスポンシブデザイン</li>
+<li>その他テクニック</li>
+</ul>
+<p>教科書はもう使ってないです(なぜかレスポンシブへの言及がなかった)</p>
+<h1 id="%E9%9B%9B%E5%BD%A2%E3%81%AEhtml">雛形のHTML</h1>
+<p>day4で作ったヘッダとday5のコンテンツをあわせたみたいな感じ</p>
+<p>index.html</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header_bg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header_layout"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"logo"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image/dragon.jpg"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"leading"</span>&gt;</span>毎日の暮らしの豊かさを、食から。<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">nav</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>メニュー情報<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>サイゼリヤのこだわり<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>お店を探す<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>会社情報<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>採用情報<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main_banner"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image/banner.jpg"</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"important"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>重要なお知らせ<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>2020/05/26<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>緊急事態宣言解除に伴う当社の対応について<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>2020/05/22<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>【第4弾 おうちdeサイゼ！】テイクアウトメニューがバージョンアップ<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>2020/05/20<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>【契約農家さんを応援！】サイゼリヤの野菜を販売！！<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"content-horizontal"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"whatsnew"</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"content-h2"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>新着情報<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>2020/05/22<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>【第4弾 おうちdeサイゼ！】テイクアウトメニューがバージョンアップ<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>2020/04/22<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>季節のメニューを更新しました。<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>2020/04/20<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>「3月の間違い探し」解答編 公開しました。<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>2020/03/27<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>新型コロナウイルスに対する当社の対応について<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>2020/03/19<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>「3月の間違い探し」問題編　公開しました。<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>2020/03/18<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>キッズメニューを更新しました。<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>2020/03/18<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>グランドメニューを更新しました。<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>2020/03/16<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>3月18日 春のグランドメニューが登場<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pickup"</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"content-h2"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Contents PICK UP!<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image/dragon.jpg"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>サイゼリヤのこだわり<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image/dragon.jpg"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>サイゼリヤこだわりSpecialメニュー<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image/dragon.jpg"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>VIVA! Italia<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"rightList"</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>「おうちdeサイゼ」WEB会議用壁紙<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image/dragon.jpg"</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>サイゼリヤ|企業紹介 100秒スペシャルムービー<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image/dragon.jpg"</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>食の安全のために<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image/dragon.jpg"</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>ハンドルキーパー<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image/dragon.jpg"</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>店舗物件情報募集<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image/dragon.jpg"</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>わかるかな？間違い探し<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image/dragon.jpg"</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>アルバイト募集<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image/dragon.jpg"</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+
+</div></code></pre>
+<h1 id="css%E3%82%92%E7%94%A8%E6%84%8F%E3%81%99%E3%82%8B">CSSを用意する</h1>
+<p>今回は記述量が多いので分ける</p>
+<ul>
+<li>全体の共通要素 → common.css</li>
+<li>ヘッダ装飾 → header.css</li>
+<li>コンテンツ装飾 → main.css</li>
+</ul>
+<h2 id="commoncss">common.css</h2>
+<pre class="hljs"><code><div>* {
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">box-sizing</span>: border-box;
+}
+
+<span class="hljs-selector-tag">img</span> {
+	<span class="hljs-attribute">object-fit</span>: cover;
+}
+
+</div></code></pre>
+<ul>
+<li>「*」... 全要素に適用</li>
+<li>box-sizing: border-box ... heightとwidthをpaddingとborderを含んだ値にする</li>
+<li>object-fit: cover ... 画像を指定の大きさで自然にリサイズする</li>
+</ul>
+<h2 id="maincss">main.css</h2>
+<p>コンテンツ部分。day5とだいたい同じなので説明は割愛</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">main</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">960px</span>;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+	<span class="hljs-attribute">font-size</span>: <span class="hljs-number">12px</span>;
+}
+
+<span class="hljs-selector-class">.important</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">960px</span>;
+	<span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid red;
+	<span class="hljs-attribute">display</span>: flex;
+	<span class="hljs-attribute">flex-direction</span>: row;
+	<span class="hljs-attribute">margin-top</span>: <span class="hljs-number">32px</span>;
+}
+
+<span class="hljs-selector-class">.important</span> <span class="hljs-selector-tag">h2</span> {
+	<span class="hljs-attribute">color</span>: red;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">4px</span>;
+}
+
+<span class="hljs-selector-class">.important</span> <span class="hljs-selector-tag">dl</span> {
+	<span class="hljs-attribute">border-left</span>: <span class="hljs-number">1px</span> dotted red;
+	<span class="hljs-attribute">padding-left</span>: <span class="hljs-number">4px</span>;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">4px</span>;
+}
+
+<span class="hljs-selector-class">.important</span> <span class="hljs-selector-tag">dl</span> <span class="hljs-selector-tag">dt</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">72px</span>;
+	<span class="hljs-attribute">float</span>: left;
+}
+
+<span class="hljs-selector-class">.important</span> <span class="hljs-selector-tag">dl</span> <span class="hljs-selector-tag">dd</span> {
+	<span class="hljs-attribute">margin-left</span>: <span class="hljs-number">96px</span>;
+	<span class="hljs-attribute">color</span>: red;
+}
+
+<span class="hljs-selector-class">.content-horizontal</span> {
+	<span class="hljs-attribute">display</span>: flex;
+	<span class="hljs-attribute">flex-direction</span>: row;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">960px</span>;
+	<span class="hljs-attribute">margin-top</span>: <span class="hljs-number">16px</span>;
+	<span class="hljs-attribute">align-items</span>: baseline;
+}
+
+<span class="hljs-selector-class">.content-horizontal</span> <span class="hljs-selector-class">.content-h2</span> {
+	<span class="hljs-attribute">display</span>: flex;
+	<span class="hljs-attribute">align-items</span>: center;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">47px</span>;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+	<span class="hljs-attribute">background-color</span>: green;
+	<span class="hljs-attribute">border-top-left-radius</span>: <span class="hljs-number">4px</span>;
+	<span class="hljs-attribute">border-top-right-radius</span>: <span class="hljs-number">4px</span>;
+}
+
+<span class="hljs-selector-class">.content-horizontal</span> <span class="hljs-selector-class">.content-h2</span> <span class="hljs-selector-tag">h2</span> {
+	<span class="hljs-attribute">border-left</span>: <span class="hljs-number">2px</span> solid greenyellow;
+	<span class="hljs-attribute">padding-left</span>: <span class="hljs-number">4px</span>;
+	<span class="hljs-attribute">margin-left</span>: <span class="hljs-number">4px</span>;
+	<span class="hljs-attribute">color</span>: white;
+}
+
+<span class="hljs-selector-class">.whatsnew</span> {
+	<span class="hljs-attribute">box-sizing</span>: border-box;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">350px</span>;
+	<span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+	<span class="hljs-attribute">box-shadow</span>:<span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">2px</span> <span class="hljs-number">2px</span> <span class="hljs-number">#00000040</span>;
+	<span class="hljs-attribute">height</span>: auto;
+}
+
+<span class="hljs-selector-class">.whatsnew</span> <span class="hljs-selector-tag">dl</span> {
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">8px</span>;
+}
+
+<span class="hljs-selector-class">.whatsnew</span> <span class="hljs-selector-tag">dt</span> {
+	<span class="hljs-attribute">float</span>: left;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">72px</span>;
+}
+
+<span class="hljs-selector-class">.whatsnew</span> <span class="hljs-selector-tag">dd</span> {
+	<span class="hljs-attribute">padding-left</span>: <span class="hljs-number">96px</span>;
+	<span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> dotted <span class="hljs-number">#00695C</span>;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">8px</span> <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">color</span>: <span class="hljs-number">#00695C</span>;
+}
+
+<span class="hljs-selector-class">.whatsnew</span> <span class="hljs-selector-tag">dd</span><span class="hljs-selector-pseudo">:last-child</span> {
+	<span class="hljs-attribute">border-bottom</span>: none;
+}
+
+<span class="hljs-selector-class">.pickup</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">400px</span>;
+	<span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+	<span class="hljs-attribute">box-shadow</span>:<span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">2px</span> <span class="hljs-number">2px</span> <span class="hljs-number">#00000040</span>;
+	<span class="hljs-attribute">display</span>: flex;
+	<span class="hljs-attribute">flex-direction</span>: row;
+	<span class="hljs-attribute">flex-wrap</span>: wrap;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">7.5px</span>;
+}
+
+<span class="hljs-selector-class">.pickup</span> <span class="hljs-selector-tag">h2</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
+
+<span class="hljs-selector-class">.pickup</span> <span class="hljs-selector-class">.banner</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">169px</span>;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">4px</span>;
+	<span class="hljs-attribute">box-shadow</span>:<span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">1px</span> <span class="hljs-number">#00000040</span>;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">15.5px</span>;
+	<span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>;
+}
+
+<span class="hljs-selector-class">.pickup</span> <span class="hljs-selector-class">.banner</span> <span class="hljs-selector-tag">img</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">169px</span>;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">64px</span>;
+}
+
+<span class="hljs-selector-class">.pickup</span> <span class="hljs-selector-class">.banner</span> <span class="hljs-selector-tag">h3</span> {
+	<span class="hljs-attribute">font-size</span>: <span class="hljs-number">10px</span>;
+	<span class="hljs-attribute">text-align</span>: center;
+}
+
+<span class="hljs-selector-class">.rightList</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">195px</span>;
+}
+
+<span class="hljs-selector-class">.rightList</span> <span class="hljs-selector-tag">li</span> {
+	<span class="hljs-attribute">list-style-type</span>: none;
+	<span class="hljs-attribute">display</span>: flex;
+	<span class="hljs-attribute">flex-direction</span>: row;
+	<span class="hljs-attribute">align-items</span>: center;
+	<span class="hljs-attribute">padding</span>: <span class="hljs-number">8px</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-class">.rightList</span> <span class="hljs-selector-tag">li</span> + <span class="hljs-selector-tag">li</span> {
+	<span class="hljs-attribute">border-top</span>: <span class="hljs-number">1px</span> solid green;
+}
+
+<span class="hljs-selector-class">.rightList</span> <span class="hljs-selector-tag">li</span> <span class="hljs-selector-tag">p</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">96px</span>;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">2px</span>;
+}
+
+<span class="hljs-selector-class">.rightList</span> <span class="hljs-selector-tag">li</span> <span class="hljs-selector-tag">img</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">99px</span>;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">55px</span>;
+	<span class="hljs-attribute">border-left</span>: <span class="hljs-number">1px</span> dotted green;
+	<span class="hljs-attribute">padding-left</span>: <span class="hljs-number">2px</span>;
+}
+
+</div></code></pre>
+<h2 id="headercss">header.css</h2>
+<p>ヘッダ部分。中身は後で書く</p>
+<h2 id="html%E3%81%AB%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF">HTMLに読み込み</h2>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"common.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> /&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"main.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> /&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"header.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+</div></code></pre>
+<p>順番大事。上から下に読み込むので下が優先される→より一般的なものを上に書く</p>
+<h1 id="%E7%94%BB%E5%83%8F%E3%82%92%E7%94%A8%E6%84%8F">画像を用意</h1>
+<p><img src="2020-06-16-12-36-08.png" alt=""></p>
+<p>今回は4つ使うのでimageフォルダに入れておく</p>
+<h1 id="%E3%83%98%E3%83%83%E3%83%80%E3%82%92%E6%95%B4%E5%BD%A2%E3%81%99%E3%82%8B">ヘッダを整形する</h1>
+<p>ロゴ画像(#logo)をヘッダの左下に表示する</p>
+<p>親要素の絶対位置に表示したい場合は親要素にposition: relative、子要素にposition: absoluteを適用する</p>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.header_layout</span> {
+	<span class="hljs-attribute">position</span>: relative;
+}
+
+<span class="hljs-selector-class">.header_layout</span> <span class="hljs-selector-id">#logo</span> {
+	<span class="hljs-attribute">position</span>: absolute;
+	<span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">96px</span>;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">128px</span>;
+}
+</div></code></pre>
+<p>ナビゲーションなりが重なって見えないのでlogoを避けて縦に並べる</p>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.header_layout</span> {
+	<span class="hljs-attribute">position</span>: relative;
+	<span class="hljs-attribute">display</span>: flex;
+	<span class="hljs-attribute">flex-direction</span>: column;
+	<span class="hljs-attribute">justify-content</span>: flex-end;
+}
+
+<span class="hljs-comment">/*...*/</span>
+
+<span class="hljs-selector-class">.header_layout</span> <span class="hljs-selector-id">#leading</span> {
+	<span class="hljs-attribute">margin-left</span>: <span class="hljs-number">128px</span>;
+}
+
+<span class="hljs-selector-tag">nav</span> {
+	<span class="hljs-attribute">margin-left</span>: <span class="hljs-number">128px</span>;
+}
+</div></code></pre>
+<p>flexで縦に並べてそれぞれの要素の左側にlogo分のmarginを設ける</p>
+<p>navを整形</p>
+<pre class="hljs"><code><div>
+<span class="hljs-selector-tag">nav</span> {
+	<span class="hljs-attribute">margin-left</span>: <span class="hljs-number">128px</span>;
+	<span class="hljs-attribute">padding</span>: <span class="hljs-number">8px</span>;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">832px</span>;
+}
+
+<span class="hljs-selector-tag">nav</span> <span class="hljs-selector-tag">ul</span> {
+	<span class="hljs-attribute">display</span>: table;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+	<span class="hljs-attribute">flex-direction</span>: row;
+	<span class="hljs-attribute">justify-content</span>: center;
+}
+
+<span class="hljs-selector-tag">nav</span> <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span> {
+	<span class="hljs-attribute">user-select</span>: none;
+	<span class="hljs-attribute">display</span>: table-cell;
+	<span class="hljs-attribute">padding</span>: <span class="hljs-number">4px</span>;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">4px</span>;
+	<span class="hljs-attribute">list-style-type</span>: none;
+	<span class="hljs-attribute">text-align</span>: center;
+	<span class="hljs-attribute">border-left</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#808080</span>;
+}
+
+<span class="hljs-selector-tag">nav</span> <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:last-child</span> {
+	<span class="hljs-attribute">border-right</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#808080</span>;
+}
+
+<span class="hljs-selector-tag">nav</span> <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:hover</span> {
+	<span class="hljs-attribute">background-color</span>: <span class="hljs-number">#BCAAA480</span>;
+}
+</div></code></pre>
+<p>day4で作ったのとだいたい同じ</p>
+<p>display: table、table-cellを付けると全体の幅によっていい感じに広がってくれる</p>
+<h2 id="%E5%85%A8%E4%BD%93%E3%81%AE%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88">全体のレイアウト</h2>
+<p>ヘッダを中央揃え、ついでに背景色とか影を付ける</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">header</span> {
+	<span class="hljs-attribute">position</span>: relative;
+	<span class="hljs-attribute">background-color</span>: <span class="hljs-number">#00695C</span>;
+	<span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">8px</span> <span class="hljs-number">3px</span> -<span class="hljs-number">3px</span> <span class="hljs-number">#80808080</span>;
+}
+
+<span class="hljs-selector-tag">header</span> <span class="hljs-selector-class">.header_bg</span> {
+	<span class="hljs-attribute">position</span>: absolute;
+	<span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">54px</span>;
+	<span class="hljs-attribute">background-color</span>: <span class="hljs-number">#ffffff</span>;
+}
+
+<span class="hljs-selector-class">.header_layout</span> {
+	<span class="hljs-attribute">position</span>: relative;
+	<span class="hljs-attribute">display</span>: flex;
+	<span class="hljs-attribute">flex-direction</span>: column;
+	<span class="hljs-attribute">justify-content</span>: flex-end;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">960px</span>;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">131px</span>;
+}
+</div></code></pre>
+<p>定数の幅を持って左右のmarginをautoにすると中央揃えしてくれる</p>
+<p>leadingも装飾</p>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.header_layout</span> <span class="hljs-selector-id">#leading</span> {
+	<span class="hljs-attribute">margin-left</span>: <span class="hljs-number">128px</span>;
+	<span class="hljs-attribute">color</span>: white;
+	<span class="hljs-attribute">font-family</span>: serif;
+	<span class="hljs-attribute">padding-left</span>: <span class="hljs-number">32px</span>;
+	<span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">8px</span>;
+}
+</div></code></pre>
+<p><img src="2020-06-16-12-57-16.png" alt=""></p>
+<h2 id="%E4%B8%8B%E3%81%AE%E3%83%90%E3%83%8A%E3%83%BC%E3%82%82%E4%BD%9C%E3%81%A3%E3%81%A1%E3%82%83%E3%81%86">下のバナーも作っちゃう</h2>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.main_banner</span> {
+	<span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(image/yagami.png);
+	<span class="hljs-attribute">background-size</span>: cover;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+	<span class="hljs-attribute">padding-top</span>: <span class="hljs-number">16px</span>;
+	<span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">16px</span>;
+}
+
+<span class="hljs-selector-class">.main_banner</span> <span class="hljs-selector-tag">img</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">960px</span>;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+	<span class="hljs-attribute">display</span>: block;
+}
+</div></code></pre>
+<p>画像はimgタグでHTMLに書く方法の他に、cssでurlを指定する方法もある。</p>
+<p>img要素はデフォルトがdisplay: blockじゃないようで指定しないと中央揃えが上手くいかない</p>
+<p>いい感じにページができたね！</p>
+<p><img src="2020-06-16-13-00-35.png" alt=""></p>
+<h1 id="%E5%95%8F%E9%A1%8C%E7%82%B9">問題点</h1>
+<p>幅を縮めるとレイアウトが死ぬ</p>
+<p><img src="2020-06-16-13-01-32.png" alt=""></p>
+<p>→スマホの表示がやばい</p>
+<h1 id="%E3%83%AC%E3%82%B9%E3%83%9D%E3%83%B3%E3%82%B7%E3%83%96%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">レスポンシブデザインについて</h1>
+<p>「閲覧者の画面サイズまたはウェブブラウザに応じてデスクトップウェブページが閲覧できることを目指したウェブデザインの手法。」(https://ja.wikipedia.org/wiki/レスポンシブウェブデザイン)</p>
+<p>PCだけでなくタブレットやスマホでも見やすいように画面サイズによって表示を変えましょうというお話</p>
+<p>2015年4月~ Google検索がモバイルフレンドリーに(モバイルゲドン)</p>
+<p>2018年3月~ Google検索がモバイルファーストに</p>
+<blockquote>
+<p>モバイルフレンドリー ... モバイル向け表示作らないと検索順位下げるぞ</p>
+</blockquote>
+<blockquote>
+<p>モバイルファースト ... モバイル向け表示を優先して評価するぞ</p>
+</blockquote>
+<h2 id="pc%E3%81%A8%E3%82%B9%E3%83%9E%E3%83%9B%E3%81%A7%E8%A1%A8%E7%A4%BA%E3%82%92%E6%9C%80%E9%81%A9%E5%8C%96%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">PCとスマホで表示を最適化する方法</h2>
+<h3 id="%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%B3%E5%B0%82%E7%94%A8%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%A8%E6%84%8F%E3%81%99%E3%82%8B">スマートフォン専用ページを用意する</h3>
+<p>例) ニコニコ動画</p>
+<p>PC向けのwww.nicovideo.jpとスマートフォン向けのsp.nicovideo.jpを用意している</p>
+<ul>
+<li>別々に作るので双方への最適化が可能</li>
+<li>両方運用するの面倒</li>
+<li>user-agentで振り分けるので将来的に使えなくなるかも？</li>
+</ul>
+<h3 id="%E7%94%BB%E9%9D%A2%E3%82%B5%E3%82%A4%E3%82%BA%E3%81%AB%E3%82%88%E3%81%A3%E3%81%A6%E8%A1%A8%E7%A4%BA%E3%82%92%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88%E3%82%8B">画面サイズによって表示を切り替える</h3>
+<p>例) ロイヤルホスト(<a href="https://www.royalhost.jp/">royalhost.jp</a>)</p>
+<ul>
+<li>一つのページで対応できる</li>
+<li>全てに合うレイアウト組むのが面倒</li>
+<li>変な画面サイズのに出会うと表示がおかしくなるかも</li>
+</ul>
+<h2 id="%E5%9F%BA%E6%BA%96%E7%82%B9">基準点</h2>
+<p>横幅で振り分ける</p>
+<ul>
+<li>896px~ ... PC向け</li>
+<li>480px~896px ... タブレット向け</li>
+<li>~480px ... スマホ向け</li>
+</ul>
+<blockquote>
+<p>スマホは解像度高いやつでも複数画素を1pxとして換算するようになっている(dp)ので実際は1440pxとかあっても表示上は480pxに収まる</p>
+</blockquote>
+<h1 id="%E3%83%AC%E3%82%B9%E3%83%9D%E3%83%B3%E3%82%B7%E3%83%96%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%A7%E7%B5%84%E3%82%93%E3%81%A7%E3%81%BF%E3%82%8B%E5%8E%9F%E4%BD%9C%E8%B6%85%E3%81%88">レスポンシブデザインで組んでみる(原作超え)</h1>
+<h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%90%E3%83%8A%E3%83%BC">メインバナー</h2>
+<p>とりあえず最大幅を100%にすれば画面からはみ出さなくなる</p>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.main_banner</span> <span class="hljs-selector-tag">img</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">960px</span>;
+	<span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+	<span class="hljs-attribute">display</span>: block;
+}
+</div></code></pre>
+<h2 id="%E3%83%98%E3%83%83%E3%83%80%E3%83%BC">ヘッダー</h2>
+<p>同様に</p>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.header_layout</span> {
+	<span class="hljs-attribute">position</span>: relative;
+	<span class="hljs-attribute">display</span>: flex;
+	<span class="hljs-attribute">flex-direction</span>: column;
+	<span class="hljs-attribute">justify-content</span>: flex-end;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">960px</span>;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">131px</span>;
+	<span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
+}
+</div></code></pre>
+<p>ナビゲーションを伸縮するようにする</p>
+<p>画面サイズに対して左に128pxの幅を持ちたい</p>
+<p>calc関数を使うとCSS内で計算ができる。違う単位同士でもできる</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">nav</span> {
+	<span class="hljs-attribute">margin-left</span>: <span class="hljs-number">128px</span>;
+	<span class="hljs-attribute">padding</span>: <span class="hljs-number">8px</span>;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">832px</span>;
+	<span class="hljs-attribute">max-width</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-number">128px</span>);
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">54px</span>;
+}
+
+<span class="hljs-selector-tag">nav</span> <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span> {
+	<span class="hljs-attribute">user-select</span>: none;
+	<span class="hljs-attribute">display</span>: table-cell;
+	<span class="hljs-attribute">padding</span>: <span class="hljs-number">4px</span>;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">4px</span>;
+	<span class="hljs-attribute">list-style-type</span>: none;
+	<span class="hljs-attribute">text-align</span>: center;
+	<span class="hljs-attribute">border-left</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#808080</span>;
+	<span class="hljs-attribute">text-overflow</span>: ellipsis;
+	<span class="hljs-attribute">overflow</span>: hidden;
+	<span class="hljs-attribute">white-space</span>: nowrap;
+	<span class="hljs-attribute">max-width</span>: <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<ul>
+<li>text-overflow: ellipsis ... 文字がはみ出たときは三点リーダーを付ける</li>
+<li>overflow: hidden ... 文字がはみ出たときは切り取る</li>
+<li>white-space: nowrap ... 勝手に改行しない</li>
+<li>max-width: 0 ... listの要素幅を一定にしてくれる、なぜかはよく分からない(<a href="https://stackoverflow.com/questions/26292408/why-does-this-behave-the-way-it-does-with-max-width-0">参照</a>)</li>
+</ul>
+<p>はみ出さなくなった</p>
+<p><img src="2020-06-16-13-38-10.png" alt=""></p>
+<blockquote>
+<p>全部読めないのは妥協点。誰か解決してくれ</p>
+</blockquote>
+<h3 id="%E5%B9%85%E3%81%AB%E3%82%88%E3%81%A3%E3%81%A6%E4%BD%BF%E3%81%86css%E3%82%92%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88%E3%82%8B">幅によって使うCSSを切り替える</h3>
+<p>流石に幅が狭いとナビゲーションが読めない</p>
+<p>CSSのメディアクエリを利用して幅が特定の時にCSSを使おう</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">896px</span>) {
+	<span class="hljs-comment">/*896px以下の時に使うCSS
+	.hogehoge {
+		...
+	}
+	*/</span>
+}
+</div></code></pre>
+<p>header.cssの最後に追加する</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">896px</span>) {
+	<span class="hljs-selector-class">.header_layout</span> {
+		<span class="hljs-attribute">height</span>: <span class="hljs-number">56px</span>;
+	}
+
+	<span class="hljs-selector-class">.header_bg</span> {
+		<span class="hljs-attribute">display</span>: none;
+	}
+
+	<span class="hljs-selector-class">.header_layout</span> <span class="hljs-selector-id">#logo</span> {
+		<span class="hljs-attribute">height</span>: <span class="hljs-number">56px</span>;
+	}
+}
+</div></code></pre>
+<p>896px以下にした時にヘッダの高さが変わる</p>
+<h3 id="%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%92%E9%9A%A0%E3%81%99">メニューを隠す</h3>
+<p>小さい画面に並べるのは見にくいからメニューボタンに隠してしまおう</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"leading"</span>&gt;</span>毎日の暮らしの豊かさを、食から。<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"menu_button"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"image/menu.png"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">nav</span>&gt;</span>
+</div></code></pre>
+<p>menu_buttonをHTMLに追加。通常時は見えなくていいので消す</p>
+<p>mediaの外、上の方</p>
+<pre class="hljs"><code><div><span class="hljs-selector-class">.header_layout</span> <span class="hljs-selector-id">#menu_button</span> {
+	<span class="hljs-attribute">display</span>: none;
+}
+</div></code></pre>
+<p>896px以下の時に表示(displayをblockで上書き)。絶対位置で右上に表示。</p>
+<p>全面に表示したいのでz-indexに1を指定</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">896px</span>) {
+	<span class="hljs-comment">/*...*/</span>
+
+	<span class="hljs-selector-class">.header_layout</span> <span class="hljs-selector-id">#menu_button</span> {
+		<span class="hljs-attribute">position</span>: absolute;
+		<span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+		<span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+		<span class="hljs-attribute">display</span>: block;
+		<span class="hljs-attribute">height</span>: <span class="hljs-number">56px</span>;
+		<span class="hljs-attribute">width</span>: <span class="hljs-number">56px</span>;
+		<span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;
+	}
+}
+</div></code></pre>
+<p>ナビゲーションを上書きして縦並びに修正。絶対位置で見えない位置に配置</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">896px</span>) {
+	<span class="hljs-comment">/*...*/</span>
+
+	<span class="hljs-selector-tag">nav</span> {
+		<span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+		<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+		<span class="hljs-attribute">position</span>: absolute;
+		<span class="hljs-attribute">bottom</span>: <span class="hljs-number">56px</span>;
+		<span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+		<span class="hljs-attribute">background-color</span>: teal;
+	}
+
+	<span class="hljs-selector-tag">nav</span> <span class="hljs-selector-tag">ul</span> {
+		<span class="hljs-attribute">flex-direction</span>: column;
+		<span class="hljs-attribute">display</span>: flex;
+	}
+
+	<span class="hljs-selector-tag">nav</span> <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span> {
+		<span class="hljs-attribute">height</span>: <span class="hljs-number">40px</span>;
+		<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">8px</span>;
+		<span class="hljs-attribute">display</span>: block;
+		<span class="hljs-attribute">max-width</span>: none;
+		<span class="hljs-attribute">border-left</span>: none;
+		<span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#808080</span>;
+		<span class="hljs-attribute">color</span>: white;
+	}
+
+	<span class="hljs-selector-tag">nav</span> <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:last-child</span> {
+		<span class="hljs-attribute">border-right</span>: none;
+		<span class="hljs-attribute">border-bottom</span>: none;
+	}
+}
+</div></code></pre>
+<p>すっきり</p>
+<p><img src="2020-06-16-13-53-28.png" alt=""></p>
+<h3 id="%E3%83%9C%E3%82%BF%E3%83%B3hover%E3%81%A7%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%81%8C%E5%87%BA%E3%81%A6%E3%81%8F%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B">ボタンhoverでメニューが出てくるようにする</h3>
+<p>CSSだけでもアニメーションが組める</p>
+<p>transitionプロパティで要素が変化したときの時間等を指定できる</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">896px</span>) {
+	<span class="hljs-comment">/*...*/</span>
+
+	<span class="hljs-selector-tag">nav</span> {
+		<span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+		<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+		<span class="hljs-attribute">position</span>: absolute;
+		<span class="hljs-attribute">bottom</span>: <span class="hljs-number">56px</span>;
+		<span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+		<span class="hljs-attribute">transition</span>: bottom <span class="hljs-number">2.0s</span>;
+		<span class="hljs-attribute">background-color</span>: teal;
+	}
+
+	<span class="hljs-selector-tag">nav</span><span class="hljs-selector-pseudo">:hover</span> {
+		<span class="hljs-attribute">bottom</span>: -<span class="hljs-number">200px</span>;
+	}
+}
+</div></code></pre>
+<p>bottomが変化する時に2秒かけて移動する</p>
+<p>bottomを 0pxにして確かめよう</p>
+<p>menuボタンをhoverした時にナビゲーションのbottomを弄りたい</p>
+<p>一般兄弟結合子 ~ で結ぶ</p>
+<p>同じ階層かつ左の要素のほうが上の場合その要素を呼ぶことができる</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">896px</span>) {
+	<span class="hljs-comment">/*...*/</span>
+
+	<span class="hljs-selector-class">.header_layout</span> <span class="hljs-selector-id">#menu_button</span><span class="hljs-selector-pseudo">:hover</span> ~ <span class="hljs-selector-tag">nav</span> {
+		<span class="hljs-attribute">bottom</span>: -<span class="hljs-number">200px</span>;
+	}
+}
+</div></code></pre>
+<p>完成</p>
+<p><img src="1592283731110.gif" alt=""></p>
+<p>ついでにleadingも見切れるので狭い時に消す</p>
+<p>末尾に追加</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">480px</span>) {
+	<span class="hljs-selector-class">.header_layout</span> <span class="hljs-selector-id">#leading</span> {
+		<span class="hljs-attribute">display</span>: none;
+	}
+}
+</div></code></pre>
+<h2 id="%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84">コンテンツ</h2>
+<p>main.css</p>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">main</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">960px</span>;
+	<span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>; <span class="hljs-comment">/*追加！*/</span>
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+	<span class="hljs-attribute">font-size</span>: <span class="hljs-number">12px</span>;
+}
+
+<span class="hljs-selector-class">.important</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">960px</span>;
+	<span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid red;
+	<span class="hljs-attribute">display</span>: flex;
+	<span class="hljs-attribute">flex-direction</span>: row;
+	<span class="hljs-attribute">margin-top</span>: <span class="hljs-number">32px</span>;
+	<span class="hljs-attribute">max-width</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-number">16px</span>);<span class="hljs-comment">/*追加！*/</span>
+	<span class="hljs-attribute">margin-left</span>: <span class="hljs-number">8px</span>;<span class="hljs-comment">/*追加！*/</span>
+	<span class="hljs-attribute">margin-right</span>: <span class="hljs-number">8px</span>;<span class="hljs-comment">/*追加！*/</span>
+}
+
+<span class="hljs-selector-class">.content-horizontal</span> {
+	<span class="hljs-attribute">display</span>: flex;
+	<span class="hljs-attribute">flex-direction</span>: row;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">960px</span>;
+	<span class="hljs-attribute">margin-top</span>: <span class="hljs-number">16px</span>;
+	<span class="hljs-attribute">align-items</span>: baseline;
+	<span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;<span class="hljs-comment">/*追加！*/</span>
+}
+
+<span class="hljs-comment">/*追加！*/</span>
+<span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width:</span> <span class="hljs-number">896px</span>) {
+	<span class="hljs-selector-class">.content-horizontal</span> {
+		<span class="hljs-attribute">flex-direction</span>: column;
+		<span class="hljs-attribute">padding</span>: <span class="hljs-number">8px</span>;
+	}
+
+	<span class="hljs-selector-class">.whatsnew</span> {
+		<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+	}
+
+	<span class="hljs-selector-class">.pickup</span> {
+		<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+		<span class="hljs-attribute">margin</span>: <span class="hljs-number">16px</span> <span class="hljs-number">0</span>;
+	}
+
+	<span class="hljs-selector-class">.rightList</span> {
+		<span class="hljs-attribute">display</span>: flex;
+		<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+		<span class="hljs-attribute">justify-content</span>: center;
+		<span class="hljs-attribute">align-items</span>: center;
+	}
+
+	<span class="hljs-selector-class">.rightList</span> <span class="hljs-selector-tag">li</span> {
+		<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+	}
+
+	<span class="hljs-selector-class">.rightList</span> <span class="hljs-selector-tag">li</span> <span class="hljs-selector-tag">p</span> {
+		<span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+	}
+}
+</div></code></pre>
+<p>はい</p>
+<p><img src="2020-06-16-14-07-35.png" alt=""></p>
+<h1 id="%E3%81%8A%E3%81%97%E3%81%BE%E3%81%84">おしまい</h1>
+<p>CSS完全に理解できたね</p>
+
+</body>
+</html>

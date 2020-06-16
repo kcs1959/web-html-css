@@ -1,22 +1,19 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
 main {
 	width: 960px;
+	max-width: 100%;
 	margin: 0 auto;
 	font-size: 12px;
 }
 
 .important {
-	box-sizing: border-box;
 	width: 960px;
 	border: 1px solid red;
 	display: flex;
 	flex-direction: row;
 	margin-top: 32px;
+	max-width: calc(100% - 16px);
+	margin-left: 8px;
+	margin-right: 8px;
 }
 
 .important h2 {
@@ -46,6 +43,7 @@ main {
 	width: 960px;
 	margin-top: 16px;
 	align-items: baseline;
+	max-width: 100%;
 }
 
 .content-horizontal .content-h2 {
@@ -84,9 +82,9 @@ main {
 
 .whatsnew dd {
 	padding-left: 96px;
-	border-bottom: 1px dotted green;
+	border-bottom: 1px dotted #00695C;
 	margin: 8px 0;
-	color: green;
+	color: #00695C;
 }
 
 .whatsnew dd:last-child {
@@ -94,7 +92,6 @@ main {
 }
 
 .pickup {
-	box-sizing: border-box;
 	width: 400px;
 	border-radius: 4px;
 	box-shadow:0 0 2px 2px #00000040;
@@ -105,12 +102,10 @@ main {
 }
 
 .pickup h2 {
-	box-sizing: border-box;
 	width: 100%;
 }
 
 .pickup .banner {
-	box-sizing: border-box;
 	width: 169px;
 	margin: 4px;
 	box-shadow:0 0 1px 1px #00000040;
@@ -129,7 +124,6 @@ main {
 }
 
 .rightList {
-	box-sizing: border-box;
 	width: 195px;
 }
 
@@ -155,4 +149,35 @@ main {
 	height: 55px;
 	border-left: 1px dotted green;
 	padding-left: 2px;
+}
+
+@media screen and (max-width: 896px) {
+	.content-horizontal {
+		flex-direction: column;
+		padding: 8px;
+	}
+
+	.whatsnew {
+		width: 100%;
+	}
+
+	.pickup {
+		width: 100%;
+		margin: 16px 0;
+	}
+
+	.rightList {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.rightList li {
+		margin: 0 auto;
+	}
+
+	.rightList li p {
+		width: 200px;
+	}
 }
