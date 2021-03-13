@@ -1,0 +1,165 @@
+header {
+	position: relative;
+	background-color: #00695C;
+	box-shadow: 0 8px 3px -3px #80808080;
+}
+
+header .header_bg {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 54px;
+	background-color: #ffffff;
+}
+
+.header_layout {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	margin: 0 auto;
+	width: 960px;
+	height: 131px;
+	max-width: 100%;
+}
+
+.header_layout #logo {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 96px;
+	width: 128px;
+}
+
+.header_layout #menu_button {
+	display: none;
+}
+
+.header_layout #leading {
+	margin-left: 128px;
+	color: white;
+	font-family: serif;
+	padding-left: 32px;
+	padding-bottom: 8px;
+}
+
+nav {
+	margin-left: 128px;
+	padding: 8px;
+	width: 832px;
+	max-width: calc(100% - 128px);
+	height: 54px;
+}
+
+nav ul {
+	display: table;
+	width: 100%;
+	flex-direction: row;
+	justify-content: center;
+}
+
+nav ul li {
+	user-select: none;
+	display: table-cell;
+	padding: 4px;
+	margin: 4px;
+	list-style-type: none;
+	text-align: center;
+	border-left: 1px solid #808080;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	max-width: 0;
+}
+
+nav ul li:last-child {
+	border-right: 1px solid #808080;
+}
+
+nav ul li:hover {
+	background-color: #BCAAA480;
+}
+
+.main_banner {
+	background-image: url(image/yagami.png);
+	background-size: cover;
+	width: 100%;
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+
+.main_banner img {
+	width: 960px;
+	max-width: 100%;
+	margin: 0 auto;
+	display: block;
+}
+
+@media screen and (max-width: 896px) {
+	.header_layout {
+		height: 56px;
+	}
+
+	.header_bg {
+		display: none;
+	}
+
+	.header_layout #logo {
+		height: 56px;
+	}
+
+	.header_layout #menu_button {
+		position: absolute;
+		right: 0;
+		top: 0;
+		display: block;
+		height: 56px;
+		width: 56px;
+		z-index: 1;
+	}
+
+	nav {
+		height: 200px;
+		width: 100%;
+		position: absolute;
+		bottom: 56px;
+		padding: 0;
+		transition: bottom 2.0s;
+		background-color: teal;
+	}
+
+	nav:hover {
+		bottom: -200px;
+	}
+	
+	.header_layout #menu_button:hover ~ nav {
+		bottom: -200px;
+	}
+
+	nav ul {
+		flex-direction: column;
+		display: flex;
+	}
+
+	nav ul li {
+		height: 40px;
+		margin: 0 8px;
+		display: block;
+		max-width: none;
+		border-left: none;
+		border-bottom: 1px solid #808080;
+		color: white;
+	}
+
+	nav ul li:last-child {
+		border-right: none;
+		border-bottom: none;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.header_layout #leading {
+		display: none;
+	}
+}
+
